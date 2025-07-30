@@ -5,7 +5,6 @@ import 'leaflet/dist/leaflet.css';
 import classes from "./map.component.module.css";
 import roadsData from './roads-wgs84.json';
 import type { GeoJsonData } from "./map.component.interfaces";
-import { MapEventComponent } from "./map-event.component";
 import { GeoJsonLayer } from "./geo-json-layer.component";
 
 
@@ -31,7 +30,6 @@ export const Map: React.FC = () => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <GeoJsonLayer data={roads} />
-        <MapEventComponent />
       </MapContainer>
     </div>
   );
