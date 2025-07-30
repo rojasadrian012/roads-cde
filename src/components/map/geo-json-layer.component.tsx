@@ -5,46 +5,78 @@ import type { GeoJsonData, GeoJsonFeature } from './map.component.interfaces';
 import { popupContent } from './popup-content';
 
 interface Props {
-    data: GeoJsonData
+  data: GeoJsonData;
+  onStreetSelect: (codigo: string) => void; // Nueva prop
 }
 
-export const GeoJsonLayer: React.FC<Props> = ({ data }) => {
-    const map = useMap();
+export const GeoJsonLayer: React.FC<Props> = ({ data, onStreetSelect }) => {
+  const map = useMap();
 
   useEffect(() => {
     const geoJsonLayer = L.geoJSON(data, {
-        style: (feature) => {
-            const withName = feature?.properties?.NOMBRE;
+      style: (feature) => {
+        const withName = feature?.properties?.NOMBRE;
+        let color = withName ? '#808080' : '#ff0000'; 
+        let weight = 5;
+        
+        return {
+          color: color,
+          weight: weight,
+          opacity: 0.8
+        };
+      },
+      onEachFeature: (feature, layer) => {
+        if (feature.properties) {
+          const popup = popupContent(feature as GeoJsonFeature);
+          layer.bindPopup(popup);
+
+          // AQUÍ ES DONDE SE CAPTURA EL CLICK
+          // Solo para calles SIN nombre (rojas)
+          if (!feature.properties.NOMBRE) {
+            layer.on('click', (e) => {
+              console.log('Click en calle sin nombre:', feature.properties.CODIGO_CAL);
+              
+              // Llamar a la función que viene desde App
+              onStreetSelect(feature.properties.CODIGO_CAL);
+              
+              // Opcional: hacer scroll hacia el formulario
+              setTimeout(() => {
+                const formElement = document.querySelector('form');
+                if (formElement) {
+                  formElement.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                  });
+                }
+              }, 100);
+              
+              // Opcional: cerrar el popup después de seleccionar
+              layer.closePopup();
+            });
             
-            let color = withName ? '#808080' : '#ff0000'; 
-            let weight = 5;
+            // Cambiar cursor para indicar que es clickeable
+            layer.on('mouseover', () => {
+              map.getContainer().style.cursor = 'pointer';
+            });
             
-            return {
-                color: color,
-                weight: weight,
-                opacity: 0.8
-            };
-        },
-        onEachFeature: (feature, layer) => {
-            if (feature.properties) {
-                const popup = popupContent(feature as GeoJsonFeature);
-                layer.bindPopup(popup);
-            }
-        },
+            layer.on('mouseout', () => {
+              map.getContainer().style.cursor = '';
+            });
+          }
+        }
+      },
     });
 
     geoJsonLayer.addTo(map);
 
-    // Ajustar la vista del mapa a los límites del GeoJSON
     if (geoJsonLayer.getBounds().isValid()) {
-        map.fitBounds(geoJsonLayer.getBounds(), { padding: [10, 10] });
+      map.fitBounds(geoJsonLayer.getBounds(), { padding: [10, 10] });
     }
 
     return () => {
-        map.removeLayer(geoJsonLayer);
+      map.removeLayer(geoJsonLayer);
     };
-}, [map, data]);
+  }, [map, data, onStreetSelect]);
 
-
-    return null;
+  return null;
 };
