@@ -31,15 +31,6 @@ export const GeoJsonLayer: React.FC<Props> = ({ data }) => {
                 layer.bindPopup(popup);
             }
         },
-        coordsToLatLng: (coords) => {
-            // Transformación aproximada de UTM a lat/lon para Ciudad del Este
-            const x = coords[0];
-            const y = coords[1];
-            const lat = (y - 7000000) / 111320 - 25.5;
-            const lon = (x - 740000) / 111320 - 54.6;
-            // Devolver una instancia de L.LatLng en lugar de un arreglo
-            return new L.LatLng(lat, lon);
-        }
     });
 
     geoJsonLayer.addTo(map);
