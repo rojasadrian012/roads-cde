@@ -13,7 +13,7 @@ export const AppLayout: React.FC = () => {
         console.log('Calle seleccionada:', codigo);
         setFormData(prev => ({
             ...prev,
-            codigo: codigo
+            streetCode: codigo
         }));
     };
 

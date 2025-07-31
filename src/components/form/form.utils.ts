@@ -1,11 +1,15 @@
 export interface FormData {
-    codigo: string;
-    nombre: string;
-    correo: string;
+    name: string;
+    email: string;
+    streetCode: string;
+    proposedName: string,
+    reason: string
 }
 
 export const emptyFormData: FormData = {
-    codigo: '',
-    nombre: '',
-    correo: ''
+    name: '',
+    email: '',
+    streetCode: '',
+    proposedName: '',
+    reason: '',
 }
