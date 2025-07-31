@@ -1,7 +1,7 @@
 import L from 'leaflet';
 import { useEffect } from 'react';
 import { useMap } from 'react-leaflet';
-import type { GeoJsonData, GeoJsonFeature } from './map.component.interfaces';
+import type { GeoJsonData, GeoJsonFeature } from './interactive-map.component.interfaces';
 import { popupContent } from './popup-content';
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
   onStreetSelect: (codigo: string) => void; // Nueva prop
 }
 
-export const GeoJsonLayer: React.FC<Props> = ({ data, onStreetSelect }) => {
+export const StreetGeoJsonLayer: React.FC<Props> = ({ data, onStreetSelect }) => {
   const map = useMap();
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export const GeoJsonLayer: React.FC<Props> = ({ data, onStreetSelect }) => {
           // AQUÍ ES DONDE SE CAPTURA EL CLICK
           // Solo para calles SIN nombre (rojas)
           if (!feature.properties.NOMBRE) {
-            layer.on('click', (e) => {
+            layer.on('click', () => {
               console.log('Click en calle sin nombre:', feature.properties.CODIGO_CAL);
               
               // Llamar a la función que viene desde App
@@ -68,10 +68,6 @@ export const GeoJsonLayer: React.FC<Props> = ({ data, onStreetSelect }) => {
     });
 
     geoJsonLayer.addTo(map);
-
-    if (geoJsonLayer.getBounds().isValid()) {
-      map.fitBounds(geoJsonLayer.getBounds(), { padding: [10, 10] });
-    }
 
     return () => {
       map.removeLayer(geoJsonLayer);

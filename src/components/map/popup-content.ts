@@ -1,4 +1,4 @@
-import type { GeoJsonFeature } from "./map.component.interfaces"
+import type { GeoJsonFeature } from "./interactive-map.component.interfaces"
 
 
 export const popupContent = (feature: GeoJsonFeature) => {

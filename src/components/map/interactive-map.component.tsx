@@ -1,17 +1,18 @@
 import React from "react";
+import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer } from "react-leaflet";
 
-import 'leaflet/dist/leaflet.css';
-import classes from "./map.component.module.css";
+import classes from "./interactive-map.component.module.css";
 import roadsData from './roads-wgs84.json';
-import { GeoJsonLayer } from "./geo-json-layer.component";
+import type { GeoJsonData } from "./interactive-map.component.interfaces";
+import { StreetGeoJsonLayer } from "./street-geo-json-layer.component";
 
 interface MapProps {
-  onStreetSelect: (codigo: string) => void; // Función que recibe desde App
+  onStreetSelect: (codigo: string) => void; 
 }
 
-export const Map: React.FC<MapProps> = ({ onStreetSelect }) => {
-  const roads = roadsData; // Tus datos
+export const InteractiveMap: React.FC<MapProps> = ({ onStreetSelect }) => {
+  const roads = roadsData; 
 
   return (
     <div className="p-4">
@@ -29,8 +30,10 @@ export const Map: React.FC<MapProps> = ({ onStreetSelect }) => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {/* Pasar la función onStreetSelect al GeoJsonLayer */}
-        <GeoJsonLayer data={roads as GeoJsonData} onStreetSelect={onStreetSelect} />
+        <StreetGeoJsonLayer 
+          data={roads as GeoJsonData} 
+          onStreetSelect={onStreetSelect}   
+        />
       </MapContainer>
     </div>
   );
