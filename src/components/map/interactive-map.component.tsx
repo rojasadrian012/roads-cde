@@ -6,6 +6,7 @@ import classes from "./interactive-map.component.module.css";
 import roadsData from './roads-wgs84.json';
 import type { GeoJsonData } from "./interactive-map.component.interfaces";
 import { StreetGeoJsonLayer } from "./street-geo-json-layer.component";
+import { LocationMarker } from "./location-marker.component";
 
 interface MapProps {
   onStreetSelect: (codigo: string) => void; 
@@ -30,6 +31,7 @@ export const InteractiveMap: React.FC<MapProps> = ({ onStreetSelect }) => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
+        <LocationMarker />
         <StreetGeoJsonLayer 
           data={roads as GeoJsonData} 
           onStreetSelect={onStreetSelect}   

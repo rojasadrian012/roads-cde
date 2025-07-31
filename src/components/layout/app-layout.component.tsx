@@ -3,9 +3,6 @@ import { Form } from "../form";
 import { InteractiveMap } from "../map";
 import { emptyFormData, type FormData } from "../form";
 
-
-
-
 export const AppLayout: React.FC = () => {
     const [formData, setFormData] = React.useState<FormData>(emptyFormData)
 
