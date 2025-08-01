@@ -16,8 +16,7 @@ export const InteractiveMap: React.FC<MapProps> = ({ onStreetSelect }) => {
   const roads = roadsData; 
 
   return (
-    <div className="p-4">
-      <h1 className="text-blue-600 text-2xl mb-4">CDE Map</h1>
+    <div className="pt-20 md:pt-24 p-4">
       <p className="mb-2 text-gray-600">
         Calles cargadas: {roads.features.length}
       </p>
