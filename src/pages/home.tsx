@@ -1,8 +1,8 @@
 import React from "react";
 import { emptyFormData, Form, type FormData } from "../components/form";
 import { Hero } from "../components/hero";
-import { InteractiveMap } from "../components/map";
 import { Benefits } from "../components/benefits/benefits.component";
+import { InteractiveMap } from "../components/map";
 
 export const HomePage: React.FC = () => {
     const [formData, setFormData] = React.useState<FormData>(emptyFormData)
