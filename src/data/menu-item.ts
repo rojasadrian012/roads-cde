@@ -3,15 +3,15 @@ import type { IMenuItem } from "../types";
 
 export const menuItems: IMenuItem[] = [
     {
-        text: "Features",
-        url: "#features"
+        text: "¿Cómo Funciona?",
+        url: "#how-work"
     },
     {
-        text: "Pricing",
-        url: "#pricing"
+        text: "Mapa actualizado",
+        url: "#interactive-map"
     },
     {
-        text: "Testimonials",
-        url: "#testimonials"
+        text: "Nombre para Calle",
+        url: "#street-name"
     }
 ];
