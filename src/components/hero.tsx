@@ -4,7 +4,7 @@ export const Hero: React.FC = () => {
     return (
         <section
             id="hero"
-            className="relative flex items-center justify-center pb-0 pt-32 md:pt-40 px-5"
+            className="relative flex items-center justify-center pb-0 pt-32 md:pt-40 px-5 lg:px-20"
         >
             <div className="absolute left-0 top-0 bottom-0 -z-10 w-full">
                 <div className="absolute inset-0 h-full w-full bg-hero-backgroun 

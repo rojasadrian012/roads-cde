@@ -2,6 +2,7 @@ import React from "react";
 import { emptyFormData, Form, type FormData } from "../components/form";
 import { Hero } from "../components/hero";
 import { InteractiveMap } from "../components/map";
+import { Benefits } from "../components/benefits/benefits.component";
 
 export const HomePage: React.FC = () => {
     const [formData, setFormData] = React.useState<FormData>(emptyFormData)
@@ -16,6 +17,7 @@ export const HomePage: React.FC = () => {
     return (
         <div>
             <Hero />
+            <Benefits />
             <InteractiveMap onStreetSelect={handleStreetSelect} />
             <Form formData={formData} setFormData={setFormData} />
         </div>

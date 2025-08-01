@@ -16,7 +16,11 @@ export const InteractiveMap: React.FC<MapProps> = ({ onStreetSelect }) => {
   const roads = roadsData; 
 
   return (
-    <div className="pt-20 md:pt-24 p-4">
+    <div id="interactive-map" className="pt-20 md:pt-24 p-4 lg:px-20">
+      <h2 
+        className="text-4xl md:text-6xl md:leading-tight font-bold text-foreground max-w-lg md:max-w-2xl">
+          Mapa actualizado
+      </h2>
       <p className="mb-2 text-gray-600">
         Calles cargadas: {roads.features.length}
       </p>
