@@ -1,42 +1,67 @@
-import React from "react";
-import type { LatLng } from "leaflet";
-import { Marker, Popup, useMap } from "react-leaflet";
-
+import React, { useState, useEffect } from 'react';
+import { Marker, Popup, useMap } from 'react-leaflet';
+import L from 'leaflet';
+import { createLocationIcon } from './create-location-icon';
 
 export const LocationMarker: React.FC = () => {
+    const [position, setPosition] = useState<L.LatLng | null>(null);
+    const [accuracy, setAccuracy] = useState<number | null>(null);
     const map = useMap();
-    const [position, setPosition] = React.useState<LatLng | null>(null);
 
-    React.useEffect(() => {
-        map.locate({ setView: true, maxZoom: 16 });
+    useEffect(() => {
 
-        const onLocationFound = (e: L.LocationEvent) => {
-            console.log('▶️ Leaflet.locationfound:', {
-                lat: e.latlng.lat,
-                lng: e.latlng.lng,
-                accuracy: e.accuracy
-            });
-            setPosition(e.latlng);
-        };
-        const onLocationError = (e: L.ErrorEvent) => {
-            console.error('❌ Leaflet.locationerror:', e.message);
-        };
+        if (!navigator.geolocation) {
+            console.log('Geolocation is not supported by this browser.');
+            return;
+        }
 
-        map.on('locationfound', onLocationFound);
-        map.on('locationerror', onLocationError);
-        return () => {
-            map.off('locationfound', onLocationFound);
-            map.off('locationerror', onLocationError);
-        };
+        const watchId = navigator.geolocation.watchPosition(
+            (pos) => {
+                const { latitude, longitude, accuracy } = pos.coords;
+                const newPosition = new L.LatLng(latitude, longitude);
+                setPosition(newPosition);
+                setAccuracy(accuracy);
+
+                map.setView(newPosition, map.getZoom());
+            },
+            (error) => {
+                console.error('Error getting location:', error);
+                switch (error.code) {
+                    case error.PERMISSION_DENIED:
+                        console.log("User denied the request for Geolocation.");
+                        break;
+                    case error.POSITION_UNAVAILABLE:
+                        console.log("Location information is unavailable.");
+                        break;
+                    case error.TIMEOUT:
+                        console.log("The request to get user location timed out.");
+                        break;
+                }
+            },
+            {
+                enableHighAccuracy: true,
+                timeout: 5000,
+                maximumAge: 0
+            }
+        );
+
+        return () => navigator.geolocation.clearWatch(watchId);
     }, [map]);
 
     if (!position) return null;
 
     return (
-        <>
-            <Marker position={position}>
-                <Popup>¡Estás aquí!</Popup>
-            </Marker>
-        </>
+        <Marker
+            position={position}
+            icon={createLocationIcon()}
+        >
+            <Popup>
+                <div>
+                    <strong>Tu ubicación</strong>
+                    <br />
+                    Precisión: {accuracy ? `${Math.round(Number(accuracy))}m` : 'Desconocida'}
+                </div>
+            </Popup>
+        </Marker>
     );
 };
