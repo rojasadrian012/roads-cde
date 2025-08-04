@@ -5,7 +5,7 @@ import { Benefits } from "../components/benefits/benefits.component";
 import { InteractiveMap } from "../components/map";
 
 export const HomePage: React.FC = () => {
-    const [formData, setFormData] = React.useState<FormData>(emptyFormData)
+    const [formData, setFormData] = React.useState<FormData>(emptyFormData);
 
     const handleStreetSelect = (codigo: string) => {
         console.log('Calle seleccionada:', codigo);
@@ -14,11 +14,15 @@ export const HomePage: React.FC = () => {
             streetCode: codigo
         }));
     };
+
     return (
         <div>
             <Hero />
             <Benefits />
-            <InteractiveMap onStreetSelect={handleStreetSelect} />
+            <InteractiveMap 
+                onStreetSelect={handleStreetSelect}
+                selectedStreetCode={formData.streetCode}
+            />
             <Form formData={formData} setFormData={setFormData} />
         </div>
     );

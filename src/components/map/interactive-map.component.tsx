@@ -8,18 +8,22 @@ import type { GeoJsonData } from "./interactive-map.component.interfaces";
 import { StreetGeoJsonLayer } from "./street-geo-json-layer.component";
 import { LocationMarker } from "./location-marker.component";
 
-interface MapProps {
-  onStreetSelect: (codigo: string) => void; 
+interface Props {
+  onStreetSelect: (codigo: string) => void;
+  selectedStreetCode?: string; 
 }
 
-export const InteractiveMap: React.FC<MapProps> = ({ onStreetSelect }) => {
-  const roads = roadsData; 
+export const InteractiveMap: React.FC<Props> = ({
+  onStreetSelect,
+  selectedStreetCode
+}) => {
+  const roads = roadsData;
 
   return (
     <div id="interactive-map" className="pt-20 md:pt-24 p-4 lg:px-20">
-      <h2 
+      <h2
         className="text-4xl md:text-6xl md:leading-tight font-bold text-foreground max-w-lg md:max-w-2xl">
-          Mapa actualizado
+        Mapa actualizado
       </h2>
       <p className="mb-2 text-gray-600">
         Calles cargadas: {roads.features.length}
@@ -35,9 +39,10 @@ export const InteractiveMap: React.FC<MapProps> = ({ onStreetSelect }) => {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <LocationMarker />
-        <StreetGeoJsonLayer 
-          data={roads as GeoJsonData} 
-          onStreetSelect={onStreetSelect}   
+        <StreetGeoJsonLayer
+          data={roads as GeoJsonData}
+          onStreetSelect={onStreetSelect}
+          selectedStreetCode={selectedStreetCode} 
         />
       </MapContainer>
     </div>
