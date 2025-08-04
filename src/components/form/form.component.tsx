@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { emptyFormData, type FormData } from "./form.utils";
+import Container from "../container.component";
 
 interface Props {
     formData: FormData;
@@ -159,9 +160,8 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
     };
 
     return (
-        <div id="street-name" className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50">
-            <div className="max-w-4xl mx-auto px-4 py-8 lg:py-16">
-                {/* Header Section */}
+        <div id="street-name" className="min-h-dvh bg-gradient-to-br">
+            <Container>
                 <div className="text-center mb-12">
                     <h1 className="text-3xl lg:text-5xl lg:leading-tight font-bold text-gray-900 mb-4">
                         Proponer Nombre para <span className="text-primary">Calle</span>
@@ -175,7 +175,7 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                 <div className="flex flex-wrap flex-col items-center justify-center gap-8 lg:flex-row lg:gap-20 lg:flex-nowrap">
 
                     {/* Form Section */}
-                    <div className="w-full max-w-lg">
+                    <div className="w-full max-w-3xl">
                         <form onSubmit={handleSubmit} noValidate>
                             <div className="bg-white/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-gray-100">
 
@@ -336,8 +336,8 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                         </form>
                     </div>
                 </div>
-            </div>
-        </div>
 
+            </Container>
+        </div>
     );
 }

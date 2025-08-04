@@ -1,10 +1,11 @@
 import { heroDetails } from "../data/herp-details";
+import Container from "./container.component";
 
 export const Hero: React.FC = () => {
     return (
-        <section
+        <Container
             id="hero"
-            className="relative flex items-center justify-center pb-0 pt-32 md:pt-40 px-5 lg:px-20"
+            className="pt-26"
         >
             <div className="absolute left-0 top-0 bottom-0 -z-10 w-full">
                 <div className="absolute inset-0 h-full w-full bg-hero-backgroun 
@@ -14,7 +15,7 @@ export const Hero: React.FC = () => {
 
             <div className="text-center">
                 <h1 
-                    className="text-primary text-4xl lg:text-6xl md:leading-tight font-bold text-foreground max-w-lg md:max-w-2xl mx-auto">
+                    className="text-primary text-4xl lg:text-5xl md:leading-tight font-bold text-foreground max-w-lg md:max-w-2xl mx-auto">
                     {heroDetails.heading}
                 </h1>
                 <p className="mt-4 text-foreground max-w-xl mx-auto lg:text-xl">{heroDetails.subheading}</p>
@@ -26,7 +27,7 @@ export const Hero: React.FC = () => {
                 />
 
             </div>
-        </section>
+        </Container>
     );
 };
 

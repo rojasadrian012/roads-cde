@@ -5,6 +5,7 @@ import { colors } from "../styles";
 
 export const benefits: IBenefit[] = [
     {
+        id: "how-work",
         title: "¿Cómo Funciona?",
         description: "Seleccioná una calle sin nombre en el mapa interactivo, obtené su código y proponé un nombre justificando tu elección. ¡Tu participación es fundamental!",
         bullets: [

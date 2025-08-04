@@ -47,25 +47,25 @@ export const childVariants: Variants = {
 };
 
 const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }) => {
-    const { title, description, imageSrc, bullets } = benefit;
+    const { title, description, imageSrc, bullets, id } = benefit;
 
     return (
-        <section className="benefit-section">
+        <section>
             <motion.div
-                className="flex flex-wrap flex-col items-center justify-center gap-2 lg:flex-row lg:gap-20 lg:flex-nowrap mb-24"
+                className="flex flex-wrap flex-col items-center justify-start gap-2 lg:flex-row lg:gap-20 lg:flex-nowrap mb-24"
                 variants={containerVariants}
                 initial="offscreen"
                 whileInView="onscreen"
                 viewport={{ once: true }}
             >
                 <div
-                    className={clsx("flex flex-wrap items-center w-full max-w-lg", {
+                    className={clsx("flex flex-wrap items-center w-full", {
                         "justify-start": imageAtRight,
                         "lg:order-1 justify-end": !imageAtRight
                     })}
                 >
-                    <div className="w-full text-center lg:text-left">
-                        <motion.div className="flex flex-col w-full" variants={childVariants}>
+                    <div className="w-full text-center lg:text-left p-4">
+                        <motion.div id={id} className="flex flex-col w-full" variants={childVariants}>
                             <SectionTitle>
                                 <h3 className="text-primary lg:max-w-2xl">{title}</h3>
                             </SectionTitle>

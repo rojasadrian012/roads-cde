@@ -6,6 +6,7 @@ export interface IMenuItem {
 }
 
 export interface IBenefit {
+    id?: string;
     title: string;
     description: string;
     imageSrc: string;

@@ -1,10 +1,10 @@
 import { benefits } from "../../data/benefits"
+import Container from "../container.component"
 import BenefitSection from "./benefits-section.component"
 
 export const Benefits: React.FC = () => {
     return (
-        <div id="how-work">
-            <h2 className="sr-only">Features</h2>
+        <Container>
             {benefits.map((item, index) => {
                 return (<BenefitSection
                     key={index}
@@ -12,6 +12,6 @@ export const Benefits: React.FC = () => {
                     imageAtRight={index % 2 !== 0}
                 />)
             })}
-        </div>
+        </Container>
     )
 }
