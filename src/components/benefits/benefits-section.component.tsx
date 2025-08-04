@@ -100,7 +100,7 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }) => {
                             alt={title}
                             width={384}
                             height={762}
-                            className="lg:ml-0"
+                            className="hidden lg:ml-0 lg:block"
                             loading="lazy"
                         />
                     </div>
