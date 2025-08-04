@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { emptyFormData, type FormData } from "./form.utils";
-import { Clock, Lightbulb, MousePointer2 } from "lucide-react";
 
 interface Props {
     formData: FormData;
@@ -335,74 +334,6 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                                 </div>
                             </div>
                         </form>
-                    </div>
-
-
-
-                    {/* Info Section */}
-                    <div className="w-full max-w-lg lg:order-2">
-                        <div className="space-y-8">
-
-                            {/* Instructions Card */}
-                            <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-gray-100">
-                                <div className="flex items-start gap-4">
-                                    <div className="flex-shrink-0 mt-1">
-                                        <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
-                                            <MousePointer2 className="text-primary w-4 h-4" />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                                            Cómo empezar
-                                        </h4>
-                                        <p className="text-gray-600 text-sm leading-relaxed">
-                                            Haz clic en una calle <span className="text-primary font-semibold">naranja</span> (sin nombre) en el mapa para seleccionarla y completar el formulario.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Tips Card */}
-                            <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-gray-100">
-                                <div className="flex items-start gap-4">
-                                    <div className="flex-shrink-0 mt-1">
-                                        <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
-                                            <Lightbulb className="text-primary w-4 h-4" />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                                            Consejos para tu propuesta
-                                        </h4>
-                                        <ul className="text-gray-600 text-sm space-y-1">
-                                            <li>• Considera la historia local</li>
-                                            <li>• Honra figuras importantes</li>
-                                            <li>• Piensa en la cultura del área</li>
-                                            <li>• Evita nombres duplicados</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Process Card */}
-                            <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-gray-100">
-                                <div className="flex items-start gap-4">
-                                    <div className="flex-shrink-0 mt-1">
-                                        <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
-                                            <Clock className="text-primary w-4 h-4" />
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <h4 className="text-lg font-semibold text-gray-900 mb-2">
-                                            Proceso de revisión
-                                        </h4>
-                                        <p className="text-gray-600 text-sm leading-relaxed">
-                                            Tu propuesta será evaluada por el comité municipal y la comunidad local antes de la aprobación final.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
