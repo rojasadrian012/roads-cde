@@ -14,10 +14,10 @@ export const Hero: React.FC = () => {
 
             <div className="text-center">
                 <h1 
-                    className="text-4xl md:text-6xl md:leading-tight font-bold text-foreground max-w-lg md:max-w-2xl mx-auto">
+                    className="text-primary text-4xl lg:text-6xl md:leading-tight font-bold text-foreground max-w-lg md:max-w-2xl mx-auto">
                     {heroDetails.heading}
                 </h1>
-                <p className="mt-4 text-foreground max-w-lg mx-auto">{heroDetails.subheading}</p>
+                <p className="mt-4 text-foreground max-w-xl mx-auto lg:text-xl">{heroDetails.subheading}</p>
 
                 <img
                     src={heroDetails.centerImageSrc}

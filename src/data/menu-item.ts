@@ -11,7 +11,7 @@ export const menuItems: IMenuItem[] = [
         url: "#interactive-map"
     },
     {
-        text: "Nombre para Calle",
+        text: "Proponer nombre",
         url: "#street-name"
     }
 ];

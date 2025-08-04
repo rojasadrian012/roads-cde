@@ -14,6 +14,6 @@ export interface IBenefit {
 
 export interface IBenefitBullet {
     title: string;
-    description: string;
+    description: React.ReactNode;
     icon: JSX.Element;
 }

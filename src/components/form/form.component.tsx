@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { emptyFormData, type FormData } from "./form.utils";
+import { Clock, Lightbulb, MousePointer2 } from "lucide-react";
 
 interface Props {
     formData: FormData;
@@ -164,7 +165,7 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                 {/* Header Section */}
                 <div className="text-center mb-12">
                     <h1 className="text-3xl lg:text-5xl lg:leading-tight font-bold text-gray-900 mb-4">
-                        Proponer Nombre para <span className="text-blue-600">Calle</span>
+                        Proponer Nombre para <span className="text-primary">Calle</span>
                     </h1>
                     <p className="text-base lg:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
                         Ayuda a mejorar tu comunidad proponiendo nombres significativos para las calles sin denominar
@@ -195,7 +196,7 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                                     {/* Street Code Input */}
                                     <div className="space-y-2">
                                         <label htmlFor="streetCode" className="block text-sm font-semibold text-gray-900">
-                                            Código de Calle <span className="text-red-500">*</span>
+                                            Código de Calle <span className="text-primary">*</span>
                                         </label>
                                         <input
                                             type="text"
@@ -205,21 +206,21 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                                             onChange={handleInputChange}
                                             onBlur={handleBlur}
                                             className={`w-full px-4 py-3 bg-gray-50 border rounded-xl focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-200 ${errors.streetCode
-                                                    ? 'border-red-300 focus:ring-red-500'
-                                                    : 'border-gray-200 focus:ring-blue-500'
+                                                ? 'border-red-300 focus:ring-primary'
+                                                : 'border-gray-200 focus:ring-blue-500'
                                                 }`}
                                             placeholder="Haz clic en una calle roja del mapa"
                                             readOnly
                                         />
                                         {errors.streetCode && (
-                                            <p className="text-red-500 text-xs mt-1">{errors.streetCode}</p>
+                                            <p className="text-primary text-xs mt-1">{errors.streetCode}</p>
                                         )}
                                     </div>
 
                                     {/* Name Input */}
                                     <div className="space-y-2">
                                         <label htmlFor="name" className="block text-sm font-semibold text-gray-900">
-                                            Tu Nombre <span className="text-red-500">*</span>
+                                            Tu Nombre <span className="text-primary">*</span>
                                         </label>
                                         <input
                                             type="text"
@@ -229,21 +230,21 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                                             onChange={handleInputChange}
                                             onBlur={handleBlur}
                                             className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-200 bg-white ${errors.name
-                                                    ? 'border-red-300 focus:ring-red-500'
-                                                    : 'border-gray-200 focus:ring-blue-500'
+                                                ? 'border-red-300 focus:ring-primary'
+                                                : 'border-gray-200 focus:ring-blue-500'
                                                 }`}
                                             placeholder="Ingresa tu nombre completo"
                                             maxLength={50}
                                         />
                                         {errors.name && (
-                                            <p className="text-red-500 text-xs mt-1">{errors.name}</p>
+                                            <p className="text-primary text-xs mt-1">{errors.name}</p>
                                         )}
                                     </div>
 
                                     {/* Email Input */}
                                     <div className="space-y-2">
                                         <label htmlFor="email" className="block text-sm font-semibold text-gray-900">
-                                            Correo Electrónico <span className="text-red-500">*</span>
+                                            Correo Electrónico <span className="text-primary">*</span>
                                         </label>
                                         <input
                                             type="email"
@@ -253,21 +254,21 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                                             onChange={handleInputChange}
                                             onBlur={handleBlur}
                                             className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-200 bg-white ${errors.email
-                                                    ? 'border-red-300 focus:ring-red-500'
-                                                    : 'border-gray-200 focus:ring-blue-500'
+                                                ? 'border-red-300 focus:ring-primary'
+                                                : 'border-gray-200 focus:ring-blue-500'
                                                 }`}
                                             placeholder="tu@email.com"
                                             maxLength={100}
                                         />
                                         {errors.email && (
-                                            <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+                                            <p className="text-primary text-xs mt-1">{errors.email}</p>
                                         )}
                                     </div>
 
                                     {/* Proposed Name Input */}
                                     <div className="space-y-2">
                                         <label htmlFor="proposedName" className="block text-sm font-semibold text-gray-900">
-                                            Nombre Propuesto para la Calle <span className="text-red-500">*</span>
+                                            Nombre Propuesto para la Calle <span className="text-primary">*</span>
                                         </label>
                                         <input
                                             type="text"
@@ -277,14 +278,14 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                                             onChange={handleInputChange}
                                             onBlur={handleBlur}
                                             className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-200 bg-white ${errors.proposedName
-                                                    ? 'border-red-300 focus:ring-red-500'
-                                                    : 'border-gray-200 focus:ring-blue-500'
+                                                ? 'border-red-300 focus:ring-primary'
+                                                : 'border-gray-200 focus:ring-blue-500'
                                                 }`}
                                             placeholder="Ej: Calle de los Pioneers"
                                             maxLength={100}
                                         />
                                         {errors.proposedName && (
-                                            <p className="text-red-500 text-xs mt-1">{errors.proposedName}</p>
+                                            <p className="text-primary text-xs mt-1">{errors.proposedName}</p>
                                         )}
                                         <p className="text-gray-500 text-xs">
                                             {formData.proposedName.length}/100 caracteres
@@ -294,7 +295,7 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                                     {/* Reason Textarea */}
                                     <div className="space-y-2">
                                         <label htmlFor="reason" className="block text-sm font-semibold text-gray-900">
-                                            Razón o Justificación <span className="text-red-500">*</span>
+                                            Razón o Justificación <span className="text-primary">*</span>
                                         </label>
                                         <textarea
                                             id="reason"
@@ -304,14 +305,14 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                                             onBlur={handleBlur}
                                             rows={4}
                                             className={`w-full px-4 py-3 border rounded-xl focus:outline-none focus:ring-2 focus:border-transparent transition-all duration-200 bg-white resize-vertical ${errors.reason
-                                                    ? 'border-red-300 focus:ring-red-500'
-                                                    : 'border-gray-200 focus:ring-blue-500'
+                                                ? 'border-red-300 focus:ring-primary'
+                                                : 'border-gray-200 focus:ring-blue-500'
                                                 }`}
                                             placeholder="Explica por qué consideras que este nombre es apropiado para la calle. Comparte la historia, significado cultural o importancia de la propuesta..."
                                             maxLength={1000}
                                         />
                                         {errors.reason && (
-                                            <p className="text-red-500 text-xs mt-1">{errors.reason}</p>
+                                            <p className="text-primary text-xs mt-1">{errors.reason}</p>
                                         )}
                                         <p className="text-gray-500 text-xs">
                                             {formData.reason.length}/1000 caracteres (mínimo 20)
@@ -322,7 +323,7 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                                     <button
                                         type="submit"
                                         disabled={!formData.streetCode || isSubmitting}
-                                        className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 px-6 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg"
+                                        className="w-full bg-gradient-to-r bg-primary text-white py-4 px-6 rounded-xl font-semibold hover:bg-primary focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed transition-all duration-300 transform hover:scale-[1.02] disabled:hover:scale-100 shadow-lg"
                                     >
                                         {isSubmitting
                                             ? 'Enviando...'
@@ -336,6 +337,8 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                         </form>
                     </div>
 
+
+
                     {/* Info Section */}
                     <div className="w-full max-w-lg lg:order-2">
                         <div className="space-y-8">
@@ -344,8 +347,8 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                             <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-gray-100">
                                 <div className="flex items-start gap-4">
                                     <div className="flex-shrink-0 mt-1">
-                                        <div className="w-8 h-8 bg-gradient-to-r from-red-500 to-pink-500 rounded-lg flex items-center justify-center">
-                                            <span className="text-white text-sm font-bold">!</span>
+                                        <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+                                            <MousePointer2 className="text-primary w-4 h-4" />
                                         </div>
                                     </div>
                                     <div>
@@ -353,7 +356,7 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                                             Cómo empezar
                                         </h4>
                                         <p className="text-gray-600 text-sm leading-relaxed">
-                                            Haz clic en una <span className="text-red-500 font-semibold">calle roja</span> (sin nombre) en el mapa para seleccionarla y completar el formulario.
+                                            Haz clic en una calle <span className="text-primary font-semibold">naranja</span> (sin nombre) en el mapa para seleccionarla y completar el formulario.
                                         </p>
                                     </div>
                                 </div>
@@ -363,8 +366,8 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                             <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-gray-100">
                                 <div className="flex items-start gap-4">
                                     <div className="flex-shrink-0 mt-1">
-                                        <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
-                                            <span className="text-white text-sm">💡</span>
+                                        <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+                                            <Lightbulb className="text-primary w-4 h-4" />
                                         </div>
                                     </div>
                                     <div>
@@ -385,8 +388,8 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                             <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-gray-100">
                                 <div className="flex items-start gap-4">
                                     <div className="flex-shrink-0 mt-1">
-                                        <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-violet-500 rounded-lg flex items-center justify-center">
-                                            <span className="text-white text-sm">⏳</span>
+                                        <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center">
+                                            <Clock className="text-primary w-4 h-4" />
                                         </div>
                                     </div>
                                     <div>
@@ -404,5 +407,6 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                 </div>
             </div>
         </div>
+
     );
 }

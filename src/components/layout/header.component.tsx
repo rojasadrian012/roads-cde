@@ -15,7 +15,7 @@ export const Header: React.FC = () => {
     return (
         <header className="bg-transparent fixed top-0 left-0 right-0 md:absolute z-[9999] mx-auto w-full">
             <Container className="!px-0">
-                <nav className="shadow-md md:shadow-none bg-white md:bg-transparent mx-auto flex justify-between items-center py-2 px-12 md:py-5">
+                <nav className="shadow-md md:shadow-none bg-white md:bg-transparent mx-auto flex justify-between items-center py-2 px-5 md:px-12 md:py-5">
                     {/* Logo */}
                     <a href="/" className="flex items-center gap-2">
                         <img
