@@ -9,13 +9,12 @@ export const LocationMarker: React.FC = () => {
     const map = useMap();
 
     useEffect(() => {
-
         if (!navigator.geolocation) {
             console.log('Geolocation is not supported by this browser.');
             return;
         }
 
-        const watchId = navigator.geolocation.watchPosition(
+        navigator.geolocation.getCurrentPosition(
             (pos) => {
                 const { latitude, longitude, accuracy } = pos.coords;
                 const newPosition = new L.LatLng(latitude, longitude);
@@ -44,8 +43,6 @@ export const LocationMarker: React.FC = () => {
                 maximumAge: 0
             }
         );
-
-        return () => navigator.geolocation.clearWatch(watchId);
     }, [map]);
 
     if (!position) return null;
