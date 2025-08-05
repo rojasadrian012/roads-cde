@@ -48,7 +48,7 @@ export const StreetSearcher: React.FC<Props> = ({ roadsData, onStreetFound }) =>
         const term = searchTerm.toUpperCase();
         return streetsWithNames.filter(street =>
             street.nombre.toUpperCase().includes(term)
-        ).slice(0, 10); // Limitar a 10 resultados
+        ).slice(0, 10);
     }, [searchTerm, streetsWithNames]);
 
     const handleStreetSelect = (street: any) => {
@@ -110,7 +110,6 @@ export const StreetSearcher: React.FC<Props> = ({ roadsData, onStreetFound }) =>
                                 }`}
                         />
 
-                        {/* Indicador de estado */}
                         {searchTerm.trim() && (
                             <div
                                 className="absolute right-3 top-1/2 transform -translate-y-1/2 cursor-pointer"
@@ -139,7 +138,6 @@ export const StreetSearcher: React.FC<Props> = ({ roadsData, onStreetFound }) =>
                         )}
                     </div>
 
-                    {/* Mensaje de estado */}
                     <div className='h-4 m-0 px-1'>
                         {searchTerm.trim() && (
                             <div
@@ -154,7 +152,6 @@ export const StreetSearcher: React.FC<Props> = ({ roadsData, onStreetFound }) =>
                         )}
                     </div>
 
-                    {/* Dropdown de sugerencias */}
                     {isOpen && filteredStreets.length > 0 && (
                         <div className="absolute z-10 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-y-auto">
                             {filteredStreets.map((street, index) => (
@@ -170,7 +167,6 @@ export const StreetSearcher: React.FC<Props> = ({ roadsData, onStreetFound }) =>
                         </div>
                     )}
 
-                    {/* Overlay para cerrar dropdown */}
                     {isOpen && (
                         <div
                             className="fixed inset-0 z-5"
@@ -180,7 +176,5 @@ export const StreetSearcher: React.FC<Props> = ({ roadsData, onStreetFound }) =>
                 </div>
             </div>
         </div>
-
-
     );
 };

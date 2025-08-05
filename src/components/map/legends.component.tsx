@@ -2,7 +2,10 @@ import { streetColors } from "../../styles";
 
 export const Legends: React.FC = () => {
     return (
-        <div className="mb-4 p-4 bg-white rounded-lg shadow-sm border">
+        <div 
+            className="mb-4 p-4 border-2 rounded-lg"
+            style={{ borderColor: streetColors.default }}
+        >
             <h3 className="text-sm font-semibold mb-2">Leyenda:</h3>
             <div className="flex flex-wrap gap-4 text-xs">
                 <div className="flex items-center gap-2">
