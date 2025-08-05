@@ -32,35 +32,33 @@ export const InteractiveMap: React.FC<Props> = ({
   };
 
   return (
-    <Container>
-      <div id="interactive-map" className="pt-20 md:pt-24">
-        <h2 className="text-primary text-4xl md:text-6xl md:leading-tight font-bold text-foreground max-w-lg md:max-w-2xl pb-2.5">
-          Mapa actualizado
-        </h2>
-        <StreetSearcher
-          roadsData={roadsData as GeoJsonData}
-          onStreetFound={handleStreetFound}
+    <Container id="interactive-map">
+      <h2 className="text-primary text-4xl md:text-6xl md:leading-tight font-bold text-foreground max-w-lg md:max-w-2xl pb-2.5">
+        Mapa actualizado
+      </h2>
+      <StreetSearcher
+        roadsData={roadsData as GeoJsonData}
+        onStreetFound={handleStreetFound}
+      />
+      <Legends />
+      <MapContainer
+        center={[-25.5095, -54.6158]}
+        zoom={13}
+        scrollWheelZoom={true}
+        className={`${classes.mapContainer} h-[500px] lg:h-[600px]`}
+      >
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        <Legends />
-        <MapContainer
-          center={[-25.5095, -54.6158]}
-          zoom={13}
-          scrollWheelZoom={true}
-          className={`${classes.mapContainer} h-[500px] lg:h-[600px]`}
-        >
-          <TileLayer
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-          <LocationMarker />
-          <StreetGeoJsonLayer
-            data={roads as GeoJsonData}
-            onStreetSelect={onStreetSelect}
-            selectedStreetCode={selectedStreetCode}
-            foundStreetCode={foundStreetCode}
-          />
-        </MapContainer>
-      </div>
+        <LocationMarker />
+        <StreetGeoJsonLayer
+          data={roads as GeoJsonData}
+          onStreetSelect={onStreetSelect}
+          selectedStreetCode={selectedStreetCode}
+          foundStreetCode={foundStreetCode}
+        />
+      </MapContainer>
     </Container>
   );
 };

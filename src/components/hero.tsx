@@ -17,7 +17,7 @@ export const Hero: React.FC = () => {
                 <img
                     src={heroDetails.centerImageSrc}
                     alt="app mockup"
-                    className="bg-white relative mt-12 md:mt-16 mx-auto z-10 w-full h-auto rounded-md"
+                    className="bg-white relative mt-6 md:mt-10 mx-auto z-10 w-full h-auto rounded-md"
                 />
 
             </div>
