@@ -1,8 +1,10 @@
+
 @import "tailwindcss";
 
 @theme {
   --color-primary: #f05c04;
-   --color-primary-50: oklch(98% 0 250);
+  --color-primary-50: oklch(98% 0 250);
   --color-primary-100: oklch(95% 0.02 250);
   --color-primary-500: oklch(68% 0.1 250);
+  --font-sans: "Pacifico", cursive;
 }
