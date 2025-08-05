@@ -75,8 +75,8 @@ export const StreetSearcher: React.FC<Props> = ({ roadsData, onStreetFound }) =>
     const streetExists = checkStreetExists();
 
     return (
-        <div className="py-10 h-56">
-            <h2 className="text-2xl md:text-3xl text-center mb-8">
+        <div className="pt-10 h-auto">
+            <h2 className="text-2xl md:text-3xl text-center mb-4">
                 Verificar si una calle ya existe
             </h2>
             <div className="flex justify-center">
@@ -138,7 +138,7 @@ export const StreetSearcher: React.FC<Props> = ({ roadsData, onStreetFound }) =>
                         )}
                     </div>
 
-                    <div className='h-4 m-0 px-1'>
+                    <div className='h-7 m-0 py-auto'>
                         {searchTerm.trim() && (
                             <div
                                 className="text-sm"

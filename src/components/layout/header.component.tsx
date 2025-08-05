@@ -30,18 +30,19 @@ export const Header: React.FC = () => {
                 </a>
 
                 {/* Desktop Menu */}
-                <ul className="hidden md:flex space-x-6">
+                <ul className="hidden md:flex space-x-2">
                     {menuItems.map(item => (
-                        <li key={item.text}>
+                        <li key={item.text} className="text-sm">
                             <a
                                 href={item.url}
-                                className="text-foreground text-lg font-medium hover:text-primary transition-colors lg:text-2xl"
+                                className="text-foreground hover:text-primary transition-colors lg:text-xl font-roboto tracking-tighter border-b-2 border-transparent hover:border-primary pb-1"
                             >
                                 {item.text}
                             </a>
                         </li>
                     ))}
                 </ul>
+
 
                 {/* Mobile Menu Button */}
                 <div className="md:hidden flex items-center">
