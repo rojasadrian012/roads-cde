@@ -171,7 +171,7 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
             </div>
 
             {/* Form Container */}
-            <div className="min-w-lg flex flex-wrap flex-col items-center justify-center gap-8 lg:flex-row lg:gap-20 lg:flex-nowrap">
+            <div className="w-full md:min-w-lg flex flex-wrap flex-col items-center justify-center gap-8 lg:flex-row lg:gap-20 lg:flex-nowrap">
 
                 {/* Form Section */}
                 <div className="w-full max-w-3xl">
