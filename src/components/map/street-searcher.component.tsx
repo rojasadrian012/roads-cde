@@ -75,9 +75,9 @@ export const StreetSearcher: React.FC<Props> = ({ roadsData, onStreetFound }) =>
     const streetExists = checkStreetExists();
 
     return (
-        <div className="pt-10 h-auto">
+        <div className="pt-5 h-auto">
             <h2 className="text-2xl md:text-3xl text-center mb-4">
-                Verificar si una calle ya existe
+                Consulta si la calle ya existe
             </h2>
             <div className="flex justify-center">
                 <div className="relative w-full max-w-md z-[999]">
