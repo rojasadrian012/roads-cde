@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: ComicRelief;
+    src: url("../src/assets/fonts/ComicRelief-Regular.ttf");
+}
+
+@theme {
+    --color-primary: #f05c04;
+    --font-sans: ComicRelief, "sans-serif";
+}
