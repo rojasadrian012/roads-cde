@@ -163,7 +163,7 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
         <Container id="street-name" className="min-h-dvh flex flex-col items-center justify-around md:flex-row">
             <div className="text-center max-w-md  py-10 md:px-5">
                 <h1 className="text-3xl lg:text-5xl lg:leading-tight font-bold text-gray-900 mb-4">
-                    Proponer Nombre para <span className="text-primary">Calle</span>
+                    Proponer nombre para <span className="text-primary">calle</span>
                 </h1>
                 <p className="text-base lg:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
                     Ayuda a mejorar tu comunidad proponiendo nombres significativos para las calles sin denominar
@@ -194,7 +194,7 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                                 {/* Street Code Input */}
                                 <div className="space-y-2">
                                     <label htmlFor="streetCode" className="block text-sm font-semibold text-gray-900">
-                                        Código de Calle <span className="text-primary">*</span>
+                                        Código de calle <span className="text-primary">*</span>
                                     </label>
                                     <input
                                         type="text"
@@ -218,7 +218,7 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                                 {/* Name Input */}
                                 <div className="space-y-2">
                                     <label htmlFor="name" className="block text-sm font-semibold text-gray-900">
-                                        Tu Nombre <span className="text-primary">*</span>
+                                        Tu nombre <span className="text-primary">*</span>
                                     </label>
                                     <input
                                         type="text"
@@ -242,7 +242,7 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                                 {/* Email Input */}
                                 <div className="space-y-2">
                                     <label htmlFor="email" className="block text-sm font-semibold text-gray-900">
-                                        Correo Electrónico <span className="text-primary">*</span>
+                                        Correo electrónico <span className="text-primary">*</span>
                                     </label>
                                     <input
                                         type="email"
@@ -266,7 +266,7 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                                 {/* Proposed Name Input */}
                                 <div className="space-y-2">
                                     <label htmlFor="proposedName" className="block text-sm font-semibold text-gray-900">
-                                        Nombre Propuesto para la Calle <span className="text-primary">*</span>
+                                        Nombre propuesto para la calle <span className="text-primary">*</span>
                                     </label>
                                     <input
                                         type="text"
@@ -293,7 +293,7 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                                 {/* Reason Textarea */}
                                 <div className="space-y-2">
                                     <label htmlFor="reason" className="block text-sm font-semibold text-gray-900">
-                                        Razón o Justificación <span className="text-primary">*</span>
+                                        Razón o justificación <span className="text-primary">*</span>
                                     </label>
                                     <textarea
                                         id="reason"
@@ -326,7 +326,7 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                                     {isSubmitting
                                         ? 'Enviando...'
                                         : formData.streetCode
-                                            ? 'Enviar Propuesta'
+                                            ? 'Enviar propuesta'
                                             : 'Selecciona una calle primero'
                                     }
                                 </button>
