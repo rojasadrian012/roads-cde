@@ -207,7 +207,7 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                                             ? 'border-red-300 focus:ring-primary'
                                             : 'border-gray-200 focus:ring-blue-500'
                                             }`}
-                                        placeholder="Haz clic en una calle roja del mapa"
+                                        placeholder="Haz clic en una calle naranja del mapa"
                                         readOnly
                                     />
                                     {errors.streetCode && (
