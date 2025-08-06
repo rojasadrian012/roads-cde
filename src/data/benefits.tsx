@@ -1,6 +1,8 @@
 import { MapPin, Edit3, Info, MousePointer2, Lightbulb, Clock } from "lucide-react";
 import type { IBenefit } from "../types";
-import imgageSteps from "../assets/images/no-image.png";
+import guiaPropuesta from "../assets/images/guia-turistico.png";
+import comoFunciona from "../assets/images/piensa.png";
+
 import { colors } from "../styles";
 
 export const benefits: IBenefit[] = [
@@ -26,11 +28,11 @@ export const benefits: IBenefit[] = [
             },
             {
                 title: "Consultá nombres ya existentes",
-                description: "Evitá duplicados revisando el listado disponible desde el ícono de información.",
+                description: "Evitá duplicados verificando en el buscador de calles.",
                 icon: <Info size={26} color={colors.primary} />,
             },
         ],
-        imageSrc: imgageSteps,
+        imageSrc: comoFunciona,
     },
     {
         title: "Guía para tu Propuesta",
@@ -40,22 +42,22 @@ export const benefits: IBenefit[] = [
                 title: "Cómo empezar",
                 description: (
                     <>
-                        Haz clic en una calle <span className="text-primary font-semibold">naranja</span> (sin nombre) en el mapa para seleccionarla y completar el formulario.
+                        Haz clic en una calle <span className="text-primary font-semibold">naranja</span> (sin nombre) en el mapa interactivo para seleccionarla y completar el formulario.
                     </>
                 ),
                 icon: <MousePointer2 size={26} color={colors.primary} />,
             },
             {
                 title: "Consejos para tu propuesta",
-                description: "Considera la historia local, honra figuras importantes, piensa en la cultura del área y evita nombres duplicados.",
+                description: "Analiza la historia local, honra figuras importantes, considera la cultura del área y evita nombres duplicados.",
                 icon: <Lightbulb size={26} color={colors.primary} />,
             },
             {
                 title: "Proceso de revisión",
-                description: "Tu propuesta será evaluada por el comité municipal y la comunidad local antes de la aprobación final.",
+                description: "Tu propuesta será evaluada por la junta municipal antes de la aprobación final.",
                 icon: <Clock size={26} color={colors.primary} />,
             },
         ],
-        imageSrc: imgageSteps,
+        imageSrc: guiaPropuesta,
     },
 ];

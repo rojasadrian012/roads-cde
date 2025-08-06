@@ -89,7 +89,7 @@ export const StreetSearcher: React.FC<Props> = ({ roadsData, onStreetFound }) =>
                             value={searchTerm}
                             onChange={handleInputChange}
                             onFocus={() => setIsOpen(true)}
-                            placeholder="Buscar calle existente..."
+                            placeholder="Buscador de calles..."
                             style={{
                                 color: streetExists === true
                                     ? streetColors.found
