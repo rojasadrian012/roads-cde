@@ -11,7 +11,7 @@ export const menuItems: IMenuItem[] = [
         url: "#guide"
     },
     {
-        text: "Mapa actualizado",
+        text: "Mapa interactivo",
         url: "#interactive-map"
     },
     {

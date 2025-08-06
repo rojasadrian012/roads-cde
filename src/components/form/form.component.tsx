@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { emptyFormData, type FormData } from "./form.utils";
 import Container from "../container.component";
+import { menuItems } from "../../data/menu-item";
 
 interface Props {
     formData: FormData;
@@ -160,7 +161,7 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
     };
 
     return (
-        <Container id="street-name" className="min-h-dvh flex flex-col items-center justify-around md:flex-row">
+        <Container id={menuItems[3].url.replace(/^#/, '')} className="min-h-dvh flex flex-col items-center justify-around md:flex-row pt-24 md:pt-0">
             <div className="text-center max-w-md  py-10 md:px-5">
                 <h1 className="text-3xl lg:text-5xl lg:leading-tight font-bold text-gray-900 mb-4">
                     Proponer nombre para <span className="text-primary">calle</span>

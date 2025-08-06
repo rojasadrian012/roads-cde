@@ -50,9 +50,9 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }) => {
     const { title, description, imageSrc, bullets, id } = benefit;
 
     return (
-        <section>
+        <section id={id}>
             <motion.div
-                className="flex flex-wrap flex-col items-center justify-start gap-2 lg:flex-row lg:gap-20 lg:flex-nowrap mb-24"
+                className="flex flex-wrap flex-col items-center justify-start gap-2 lg:flex-row lg:gap-20 lg:flex-nowrap pt-24"
                 variants={containerVariants}
                 initial="offscreen"
                 whileInView="onscreen"
@@ -65,7 +65,7 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }) => {
                     })}
                 >
                     <div className="w-full text-center lg:text-left p-4">
-                        <motion.div id={id} className="flex flex-col w-full" variants={childVariants}>
+                        <motion.div className="flex flex-col w-full" variants={childVariants}>
                             <SectionTitle>
                                 <h3 className="text-primary lg:max-w-2xl">{title}</h3>
                             </SectionTitle>
