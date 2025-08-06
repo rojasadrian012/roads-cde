@@ -9,3 +9,7 @@
     --color-primary: #f05c04;
     --font-sans: Roboto, "sans-serif";
 }
+
+html {
+    scroll-behavior: smooth;
+}

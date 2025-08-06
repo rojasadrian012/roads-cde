@@ -4,10 +4,11 @@ import guiaPropuesta from "../assets/images/guia-turistico.png";
 import comoFunciona from "../assets/images/piensa.png";
 
 import { colors } from "../styles";
+import { menuItems } from "./menu-item";
 
 export const benefits: IBenefit[] = [
     {
-        id: "how-work",
+        id: menuItems[0].url.replace(/^#/, ''),
         title: "¿Cómo funciona?",
         description: "Seleccioná una calle sin nombre en el mapa interactivo, obtené su código y proponé un nombre justificando tu elección. ¡Tu participación es fundamental!",
         bullets: [
@@ -35,6 +36,7 @@ export const benefits: IBenefit[] = [
         imageSrc: comoFunciona,
     },
     {
+        id: menuItems[1].url.replace(/^#/, ''),
         title: "Guía para tu propuesta",
         description: "Sigue estos consejos y pasos para crear una propuesta exitosa que honre la historia y cultura local.",
         bullets: [

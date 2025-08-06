@@ -6,6 +6,10 @@ export const menuItems: IMenuItem[] = [
         text: "¿Cómo Funciona?",
         url: "#how-work"
     },
+        {
+        text: "Guía",
+        url: "#guide"
+    },
     {
         text: "Mapa actualizado",
         url: "#interactive-map"

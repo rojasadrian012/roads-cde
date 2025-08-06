@@ -77,7 +77,7 @@ export const StreetSearcher: React.FC<Props> = ({ roadsData, onStreetFound }) =>
     return (
         <div className="pt-5 h-auto">
             <h2 className="text-2xl md:text-3xl text-center mb-4">
-                Consulta si la calle ya existe
+                Consulta si el nombre de la calle ya existe
             </h2>
             <div className="flex justify-center">
                 <div className="relative w-full max-w-md z-[999]">
@@ -145,8 +145,8 @@ export const StreetSearcher: React.FC<Props> = ({ roadsData, onStreetFound }) =>
                                 style={{ color: streetExists ? streetColors.found : streetColors.withoutName }}
                             >
                                 {streetExists
-                                    ? '✓ Esta calle ya existe en el sistema'
-                                    : '✗ Esta calle no existe en el sistema'
+                                    ? '✓ Este nombre ya existe'
+                                    : '✗ Esta aún no existe'
                                 }
                             </div>
                         )}
