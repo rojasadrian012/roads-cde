@@ -1,4 +1,4 @@
-import { heroDetails } from "../data/herp-details";
+import { heroDetails } from "../data/hero-details";
 import Container from "./container.component";
 
 export const Hero: React.FC = () => {
