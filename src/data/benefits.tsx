@@ -1,6 +1,6 @@
 import { MapPin, Edit3, Info, MousePointer2, Lightbulb, Clock } from "lucide-react";
 import { colors } from "@/styles";
-import type { IBenefit } from "./types";
+import type { IBenefit } from "@/components/features/benefits/types";
 import guiaPropuesta from "../assets/images/guia-turistico.png";
 import comoFunciona from "../assets/images/piensa.png";
 import { menuItems } from "./menu-item";
