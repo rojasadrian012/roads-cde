@@ -1,4 +1,3 @@
-import './App.css';
 import { AppLayout } from './components';
 import { HomePage } from './pages';
 
