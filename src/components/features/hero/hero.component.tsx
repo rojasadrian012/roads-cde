@@ -1,5 +1,5 @@
-import { heroDetails } from "../data/hero-details";
-import Container from "./container.component";
+import { Container } from "@/components/ui";
+import { heroDetails } from "@/data";
 
 export const Hero: React.FC = () => {
     return (

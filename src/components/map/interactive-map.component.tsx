@@ -7,10 +7,11 @@ import roadsData from './roads-wgs84.json';
 import type { GeoJsonData } from "./interactive-map.component.interfaces";
 import { StreetGeoJsonLayer } from "./street-geo-json-layer.component";
 import { LocationMarker } from "./location-marker.component";
-import Container from "../container.component";
+import { Container } from "../ui/container.component";
 import { Legends } from "./legends.component";
 import { StreetSearcher } from "./street-searcher.component";
-import { menuItems } from "../../data/menu-item";
+import { menuItems } from "@/data/menu-item";
+
 
 interface Props {
   onStreetSelect: (codigo: string) => void;

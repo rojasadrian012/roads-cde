@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { menuItems } from "@/data";
+import { Container } from "@/components/ui";
 import { emptyFormData, type FormData } from "./form.utils";
-import Container from "../container.component";
-import { menuItems } from "../../data/menu-item";
+
 
 interface Props {
     formData: FormData;

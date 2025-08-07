@@ -1,9 +1,8 @@
 import React from "react";
-import Container from "../container.component";
 import { Menu, X } from "lucide-react";
-import { menuItems } from "../../data/menu-item";
-import { siteDetails } from "../../data/site-details";
 import { Transition } from "@headlessui/react";
+import { menuItems, siteDetails } from "@/data";
+import { Container } from "../ui";
 
 export const Header: React.FC = () => {
     const [isOpen, setIsOpen] = React.useState(false);

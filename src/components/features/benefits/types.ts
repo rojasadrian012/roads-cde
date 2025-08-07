@@ -1,10 +1,5 @@
 import type { JSX } from "react";
 
-export interface IMenuItem {
-    text: string;
-    url: string;
-}
-
 export interface IBenefit {
     id?: string;
     title: string;

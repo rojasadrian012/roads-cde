@@ -1,9 +1,8 @@
 import { MapPin, Edit3, Info, MousePointer2, Lightbulb, Clock } from "lucide-react";
-import type { IBenefit } from "../types";
+import { colors } from "@/styles";
+import type { IBenefit } from "./types";
 import guiaPropuesta from "../assets/images/guia-turistico.png";
 import comoFunciona from "../assets/images/piensa.png";
-
-import { colors } from "../styles";
 import { menuItems } from "./menu-item";
 
 export const benefits: IBenefit[] = [

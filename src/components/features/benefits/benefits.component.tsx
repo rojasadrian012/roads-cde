@@ -1,6 +1,6 @@
-import { benefits } from "../../data/benefits"
-import Container from "../container.component"
-import BenefitSection from "./benefits-section.component"
+import { Container } from "@/components/ui"
+import { benefits } from "@/data"
+import { BenefitSection } from "./benefits-section.component"
 
 export const Benefits: React.FC = () => {
     return (

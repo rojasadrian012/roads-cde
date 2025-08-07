@@ -1,9 +1,10 @@
 import L from 'leaflet';
 import { useEffect } from 'react';
 import { useMap } from 'react-leaflet';
+import { streetColors, streetWidth } from '@/styles';
 import type { GeoJsonData, GeoJsonFeature } from './interactive-map.component.interfaces';
 import { popupContent } from './popup-content';
-import { streetColors, streetWidth } from '../../styles';
+
 
 interface Props {
   data: GeoJsonData;

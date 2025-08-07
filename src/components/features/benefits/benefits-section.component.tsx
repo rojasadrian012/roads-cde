@@ -1,52 +1,16 @@
 import clsx from "clsx";
-import { motion, type Variants, } from "framer-motion";
-
-
-import type { IBenefit } from "../../types";
-import { SectionTitle } from "../section-title";
-import BenefitBullet from "./benefit-bullet";
-
+import { motion } from "framer-motion";
+import type { IBenefit } from "./types";
+import { childVariants, containerVariants } from "./variants";
+import { SectionTitle } from "@/components/ui";
+import { BenefitBullet } from "./benefit-bullet.component";
 
 interface Props {
     benefit: IBenefit;
     imageAtRight?: boolean;
 }
 
-const containerVariants: Variants = {
-    offscreen: {
-        opacity: 0,
-        y: 100
-    },
-    onscreen: {
-        opacity: 1,
-        y: 0,
-        transition: {
-            type: "spring",
-            bounce: 0.2,
-            duration: 0.9,
-            delayChildren: 0.2,
-            staggerChildren: 0.1
-        }
-    }
-};
-
-export const childVariants: Variants = {
-    offscreen: {
-        opacity: 0,
-        x: -50
-    },
-    onscreen: {
-        opacity: 1,
-        x: 0,
-        transition: {
-            type: "spring",
-            bounce: 0.2,
-            duration: 1
-        }
-    }
-};
-
-const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }) => {
+export const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }) => {
     const { title, description, imageSrc, bullets, id } = benefit;
 
     return (
@@ -109,5 +73,3 @@ const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }) => {
         </section>
     );
 };
-
-export default BenefitSection;

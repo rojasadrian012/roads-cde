@@ -1,15 +1,12 @@
 import React from "react";
-
 import { Header } from "./header.component";
-import { HomePage } from "../../pages/home";
 
-
-export const AppLayout: React.FC = () => {
+export const AppLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
     return (
         <div className='bg-white min-h-screen'>
             <Header />
             <main>
-               <HomePage />
+                {children}
             </main>
         </div>
     )

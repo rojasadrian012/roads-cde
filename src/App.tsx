@@ -1,10 +1,12 @@
-
 import './App.css';
-import { AppLayout } from './components/layout';
+import { AppLayout } from './components';
+import { HomePage } from './pages';
 
 function App() {
   return (
-    <AppLayout />
+    <AppLayout>
+      <HomePage />
+    </AppLayout>
   );
 }
 

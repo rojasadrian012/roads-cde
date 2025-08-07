@@ -1,4 +1,4 @@
-import { streetColors } from "../../styles";
+import { streetColors } from "@/styles";
 
 export const Legends: React.FC = () => {
     return (

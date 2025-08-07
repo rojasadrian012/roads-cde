@@ -1,6 +1,7 @@
 import React from 'react';
+import { streetColors } from '@/styles';
 import type { GeoJsonData } from './interactive-map.component.interfaces';
-import { streetColors } from '../../styles';
+
 
 interface Props {
     roadsData: GeoJsonData;
