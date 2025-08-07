@@ -1,9 +1,8 @@
 import React from "react";
 import { Hero } from "@/components/features/hero";
 import { Benefits } from "@/components/features/benefits";
+import { InteractiveMap } from "@/components/features/interactive-map";
 import { emptyFormData, Form, type FormData } from "@/components/features/form";
-
-import { InteractiveMap } from "../components/map";
 
 export const HomePage: React.FC = () => {
     const [formData, setFormData] = React.useState<FormData>(emptyFormData);

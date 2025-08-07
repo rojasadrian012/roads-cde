@@ -1,17 +1,11 @@
 import React from "react";
 import 'leaflet/dist/leaflet.css';
 import { MapContainer, TileLayer } from "react-leaflet";
-
-import classes from "./interactive-map.component.module.css";
-import roadsData from './roads-wgs84.json';
-import type { GeoJsonData } from "./interactive-map.component.interfaces";
-import { StreetGeoJsonLayer } from "./street-geo-json-layer.component";
-import { LocationMarker } from "./location-marker.component";
-import { Container } from "../ui/container.component";
-import { Legends } from "./legends.component";
-import { StreetSearcher } from "./street-searcher.component";
 import { menuItems } from "@/data/menu-item";
-
+import { StreetSearcher, type GeoJsonData, Legends, LocationMarker, StreetGeoJsonLayer } from "./components";
+import { Container } from "@/components/ui";
+import roadsData from './data/roads-wgs84.json';
+import classes from "./interactive-map.component.module.css";
 
 interface Props {
   onStreetSelect: (codigo: string) => void;
