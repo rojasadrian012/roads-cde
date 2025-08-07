@@ -1,2 +1,2 @@
 export * from "./container.component"
-export * from "./section-title"
+export * from "./section-title.component"
