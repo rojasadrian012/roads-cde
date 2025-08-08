@@ -20,7 +20,7 @@ export const InteractiveMap: React.FC<Props> = ({
   foundStreetCode,
   setFoundStreetCode
 }) => {
-  const roads = roadsData;
+  const roads = roadsData as GeoJsonData;
 
   const handleStreetFound = (codigo: string, nombre: string) => {
     console.log('Calle encontrada:', codigo, nombre);
@@ -49,7 +49,7 @@ export const InteractiveMap: React.FC<Props> = ({
         />
         <LocationMarker />
         <StreetGeoJsonLayer
-          data={roads as GeoJsonData}
+          data={roads}
           onStreetSelect={onStreetSelect}
           selectedStreetCode={selectedStreetCode}
           foundStreetCode={foundStreetCode}

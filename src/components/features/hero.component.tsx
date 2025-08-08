@@ -8,7 +8,7 @@ export const Hero: React.FC = () => {
             className="pt-26"
         >
             <div className="text-center">
-                <h1 
+                <h1
                     className="text-primary text-4xl lg:text-5xl md:leading-tight font-bold text-foreground max-w-lg md:max-w-2xl mx-auto">
                     {heroDetails.heading}
                 </h1>
