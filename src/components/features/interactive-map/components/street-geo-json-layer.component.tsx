@@ -57,7 +57,6 @@ export const StreetGeoJsonLayer: React.FC<Props> = ({
           // Solo para calles SIN nombre (rojas)
           if (!feature.properties.NOMBRE) {
             layer.on('click', () => {
-              console.log('Click en calle sin nombre:', feature.properties.CODIGO_CAL);
               onStreetSelect(feature.properties.CODIGO_CAL);
 
               setTimeout(() => {

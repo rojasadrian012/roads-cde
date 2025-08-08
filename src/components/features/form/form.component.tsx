@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { menuItems } from "@/data";
 import { Container } from "@/components/ui";
 import { emptyFormData, type FormData } from "./form.utils";
+import { validateField } from "./validate-field";
+import { supabase } from "@/lib/supabase";
 
 
 interface Props {
@@ -20,59 +22,6 @@ interface ValidationErrors {
 export const Form: React.FC<Props> = ({ setFormData, formData }) => {
     const [errors, setErrors] = useState<ValidationErrors>({});
     const [isSubmitting, setIsSubmitting] = useState(false);
-
-    const validateField = (name: string, value: string): string | undefined => {
-        switch (name) {
-            case 'streetCode':
-                if (!value.trim()) {
-                    return 'Por favor, selecciona una calle sin nombre en el mapa';
-                }
-                break;
-            case 'name':
-                if (!value.trim()) {
-                    return 'El nombre es requerido';
-                }
-                if (value.trim().length < 2) {
-                    return 'El nombre debe tener al menos 2 caracteres';
-                }
-                if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(value.trim())) {
-                    return 'El nombre solo puede contener letras y espacios';
-                }
-                break;
-            case 'email':
-                if (!value.trim()) {
-                    return 'El correo electrónico es requerido';
-                }
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(value.trim())) {
-                    return 'Por favor, ingresa un correo electrónico válido';
-                }
-                break;
-            case 'proposedName':
-                if (!value.trim()) {
-                    return 'El nombre propuesto es requerido';
-                }
-                if (value.trim().length < 3) {
-                    return 'El nombre propuesto debe tener al menos 3 caracteres';
-                }
-                if (value.trim().length > 100) {
-                    return 'El nombre propuesto no puede exceder 100 caracteres';
-                }
-                break;
-            case 'reason':
-                if (!value.trim()) {
-                    return 'La razón o justificación es requerida';
-                }
-                if (value.trim().length < 20) {
-                    return 'La justificación debe tener al menos 20 caracteres';
-                }
-                if (value.trim().length > 1000) {
-                    return 'La justificación no puede exceder 1000 caracteres';
-                }
-                break;
-        }
-        return undefined;
-    };
 
     const validateForm = (): boolean => {
         const newErrors: ValidationErrors = {};
@@ -106,27 +55,39 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
         setIsSubmitting(true);
 
         try {
-            // Usa tu URL real del formulario - cambia la parte final de 'viewform' a 'formResponse'
-            const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSdhDfTLPIHmSLXiGC3fCUoKLByBbwxgyk0iMNYLiQ_tD6_tCg/formResponse';
+            // Insertar datos en Supabase
+            const { error } = await supabase
+                .from('streets')
+                .insert([
+                    {
+                        street_code: formData.streetCode.trim(),
+                        full_name: formData.name.trim(),
+                        email: formData.email.trim().toLowerCase(),
+                        street_name: formData.proposedName.trim(),
+                        reason: formData.reason.trim()
+                    }
+                ])
 
-            const params = new URLSearchParams({
-                'entry.1582708596': formData.streetCode.trim(),
-                'entry.1487470156': formData.name.trim(),
-                'entry.1900354476': formData.email.trim().toLowerCase(),
-                'entry.1320317034': formData.proposedName.trim(),
-                'entry.1855274484': formData.reason.trim()
-            });
-
-            window.open(`${googleFormUrl}?${params.toString()}`, '_blank');
+            if (error) {
+                throw error;
+            }
 
             // Mostrar mensaje de éxito
             alert('¡Propuesta enviada exitosamente! Gracias por tu contribución a la comunidad.');
 
+            // Limpiar el formulario
             setFormData(emptyFormData);
             setErrors({});
-        } catch (error) {
+
+        } catch (error: any) {
             console.error('Error al enviar el formulario:', error);
-            alert('Hubo un error al enviar tu propuesta. Por favor, inténtalo de nuevo.');
+
+            // Mostrar mensaje de error más específico
+            if (error.message) {
+                alert(`Hubo un error al enviar tu propuesta: ${error.message}. Por favor, inténtalo de nuevo.`);
+            } else {
+                alert('Hubo un error al enviar tu propuesta. Por favor, inténtalo de nuevo.');
+            }
         } finally {
             setIsSubmitting(false);
         }
