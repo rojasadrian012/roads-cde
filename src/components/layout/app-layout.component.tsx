@@ -9,7 +9,7 @@ export const AppLayout: React.FC<React.PropsWithChildren> = ({ children }) => {
             <main>
                 {children}
             </main>
-            <Toaster />
+            <Toaster richColors />
         </div>
     )
 }

@@ -18,7 +18,7 @@ export const Header: React.FC = () => {
                 {/* Logo */}
                 <a href="/" className="flex items-center gap-2">
                     <img
-                        src="/mcde.svg"
+                        src="/seba.svg"
                         alt="Logo"
                         className="w-15 h-15 md:w-20 md:h-20 min-w-fit"
                     />
