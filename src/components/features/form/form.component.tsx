@@ -4,6 +4,7 @@ import { Container } from "@/components/ui";
 import { emptyFormData, type FormData } from "./form.utils";
 import { validateField } from "./validate-field";
 import { supabase } from "@/lib/supabase";
+import { toast } from "sonner";
 
 
 interface Props {
@@ -73,7 +74,7 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
             }
 
             // Mostrar mensaje de éxito
-            alert('¡Propuesta enviada exitosamente! Gracias por tu contribución a la comunidad.');
+            toast.success('¡Propuesta enviada exitosamente! Gracias por tu contribución a la comunidad.');
 
             // Limpiar el formulario
             setFormData(emptyFormData);
@@ -84,9 +85,9 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
 
             // Mostrar mensaje de error más específico
             if (error.message) {
-                alert(`Hubo un error al enviar tu propuesta: ${error.message}. Por favor, inténtalo de nuevo.`);
+                toast(`Hubo un error al enviar tu propuesta: ${error.message}. Por favor, inténtalo de nuevo.`);
             } else {
-                alert('Hubo un error al enviar tu propuesta. Por favor, inténtalo de nuevo.');
+                toast('Hubo un error al enviar tu propuesta. Por favor, inténtalo de nuevo.');
             }
         } finally {
             setIsSubmitting(false);

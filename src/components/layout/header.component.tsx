@@ -12,7 +12,7 @@ export const Header: React.FC = () => {
     };
 
     return (
-        <header className="bg-transparent fixed top-0 left-0 right-0 md:absolute z-[9999] mx-auto w-full">
+        <header className="bg-transparent fixed top-0 left-0 right-0 md:absolute z-[40] mx-auto w-full">
             <Container className="py-2 shadow-md md:shadow-none bg-white md:bg-transparent mx-auto flex justify-between items-center">
 
                 {/* Logo */}
