@@ -13,9 +13,7 @@ interface LazySectionProps {
 
 export const LazySection: React.FC<LazySectionProps> = ({
     children,
-    fallback = <div className="flex justify-center items-center h-96">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-    </div>,
+    fallback,
     className = '',
     id,
     threshold = 0.1,
@@ -24,7 +22,7 @@ export const LazySection: React.FC<LazySectionProps> = ({
     const { ref, hasBeenInView } = useInView({ threshold, rootMargin, triggerOnce: true });
 
     return (
-        <div ref={ref} className={className} id={id}>
+        <section ref={ref} className={className} id={id}>
             {hasBeenInView ? (
                 <Suspense fallback={fallback}>
                     {children}
@@ -34,6 +32,6 @@ export const LazySection: React.FC<LazySectionProps> = ({
                     {fallback}
                 </div>
             )}
-        </div>
+        </section>
     );
 };
