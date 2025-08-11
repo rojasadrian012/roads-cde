@@ -34,7 +34,7 @@ export const BenefitSection: React.FC<Props> = ({ benefit, imageAtRight }) => {
                                 <h3 className="text-primary lg:max-w-2xl">{title}</h3>
                             </SectionTitle>
 
-                            <p className="mt-1.5 mx-auto lg:ml-0 leading-normal text-foreground-accent">
+                            <p className="mt-1.5 mx-auto lg:ml-0 leading-normal text-foreground-accent text-gray-600 dark:text-slate-300">
                                 {description}
                             </p>
                         </motion.div>

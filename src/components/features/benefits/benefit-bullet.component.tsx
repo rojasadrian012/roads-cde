@@ -15,7 +15,7 @@ export const BenefitBullet: React.FC<IBenefitBullet> = ({ title, description, ic
                 <h4 className="text-lg font-semibold">
                     {title}
                 </h4>
-                <p className="text-base text-foreground-accent">
+                <p className="text-base text-foreground-accent text-gray-600 dark:text-slate-300">
                     {description}
                 </p>
             </div>

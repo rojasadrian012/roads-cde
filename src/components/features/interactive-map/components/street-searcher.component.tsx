@@ -102,11 +102,14 @@ export const StreetSearcher: React.FC<Props> = ({ roadsData, onStreetFound }) =>
                                         ? streetColors.withoutName
                                         : streetColors.default
                             }}
-                            className={`w-full px-4 py-2 border-2 rounded-lg focus:outline-none focus:ring-2 transition-colors ${streetExists === true
-                                ? 'bg-green-50 focus:ring-green-200'
-                                : streetExists === false
-                                    ? 'bg-orange-50 focus:ring-orange-200'
-                                    : 'border-gray-300 focus:ring-blue-200'
+                            className={
+                                `w-full px-4 py-2 border-2 rounded-lg focus:outline-none 
+                                focus:ring-2 transition-colors 
+                                ${streetExists === true
+                                    ? 'bg-green-50 dark:bg-slate-800/80 focus:ring-green-200'
+                                    : streetExists === false
+                                        ? 'bg-orange-50 dark:bg-slate-800/80 focus:ring-orange-200'
+                                        : 'border-gray-300 focus:ring-blue-200'
                                 }`}
                         />
 
