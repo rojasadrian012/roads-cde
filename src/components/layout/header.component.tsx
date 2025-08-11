@@ -3,6 +3,7 @@ import { Menu, X } from "lucide-react";
 import { Transition } from "@headlessui/react";
 import { menuItems, siteDetails } from "@/data";
 import { Container } from "../ui";
+import { ModeToggle } from "../mode-toggle";
 
 export const Header: React.FC = () => {
     const [isOpen, setIsOpen] = React.useState(false);
@@ -13,7 +14,7 @@ export const Header: React.FC = () => {
 
     return (
         <header className="bg-transparent fixed top-0 left-0 right-0 md:absolute z-[40] mx-auto w-full">
-            <Container className="py-2 shadow-md md:shadow-none bg-white md:bg-transparent mx-auto flex justify-between items-center">
+            <Container className="py-2 shadow-md md:shadow-none md:bg-transparent mx-auto flex justify-between items-center">
 
                 {/* Logo */}
                 <a href="/" className="flex items-center gap-2">
@@ -29,18 +30,22 @@ export const Header: React.FC = () => {
                 </a>
 
                 {/* Desktop Menu */}
-                <ul className="hidden md:flex space-x-2">
-                    {menuItems.map(item => (
-                        <li key={item.text} className="text-sm">
-                            <a
-                                href={item.url}
-                                className="text-foreground hover:text-primary transition-colors lg:text-xl font-roboto tracking-tighter border-b-2 border-transparent hover:border-primary pb-1"
-                            >
-                                {item.text}
-                            </a>
-                        </li>
-                    ))}
-                </ul>
+                <div className="hidden md:flex items-center space-x-4">
+                    <ul className="flex space-x-2">
+                        {menuItems.map(item => (
+                            <li key={item.text} className="text-sm">
+                                <a
+                                    href={item.url}
+                                    className="text-foreground hover:text-primary transition-colors lg:text-xl font-roboto tracking-tighter border-b-2 border-transparent hover:border-primary pb-1"
+                                >
+                                    {item.text}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+
+                    <ModeToggle />
+                </div>
 
 
                 {/* Mobile Menu Button */}
@@ -57,7 +62,6 @@ export const Header: React.FC = () => {
                         ) : (
                             <Menu className="h-6 w-6" aria-hidden="true" />
                         )}
-                        <span className="sr-only">Toggle navigation</span>
                     </button>
                 </div>
 
@@ -73,7 +77,7 @@ export const Header: React.FC = () => {
                 leaveFrom="opacity-100 scale-100"
                 leaveTo="opacity-0 scale-95"
             >
-                <div id="mobile-menu" className="md:hidden bg-white shadow-lg">
+                <div id="mobile-menu" className="md:hidden shadow-lg">
                     <ul className="flex flex-col space-y-4 pt-1 pb-6 px-6">
                         {menuItems.map(item => (
                             <li key={item.text}>
@@ -82,6 +86,13 @@ export const Header: React.FC = () => {
                                 </a>
                             </li>
                         ))}
+                        {/* Theme Toggle - Mobile */}
+                        <li className="pt-2 border-t border-gray-200">
+                            <div className="flex items-center justify-between">
+                                <span className="text-foreground text-sm">Tema</span>
+                                <ModeToggle />
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </Transition>
