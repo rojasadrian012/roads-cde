@@ -13,7 +13,7 @@ export const Header: React.FC = () => {
     };
 
     return (
-        <header className="bg-transparent fixed top-0 left-0 right-0 md:absolute z-[40] mx-auto w-full">
+        <header className="fixed top-0 left-0 right-0 md:absolute z-[1001] mx-auto w-full bg-white dark:bg-slate-900">
             <Container className="py-2 shadow-md md:shadow-none md:bg-transparent mx-auto flex justify-between items-center">
 
                 {/* Logo */}
@@ -58,9 +58,9 @@ export const Header: React.FC = () => {
                         aria-expanded={isOpen}
                     >
                         {isOpen ? (
-                            <X className="h-6 w-6" aria-hidden="true" />
+                            <X className="h-6 w-6 dark:text-white" aria-hidden="true" />
                         ) : (
-                            <Menu className="h-6 w-6" aria-hidden="true" />
+                            <Menu className="h-6 w-6 dark:text-white" aria-hidden="true" />
                         )}
                     </button>
                 </div>

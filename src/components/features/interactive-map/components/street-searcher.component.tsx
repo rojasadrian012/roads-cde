@@ -80,7 +80,7 @@ export const StreetSearcher: React.FC<Props> = ({ roadsData, onStreetFound }) =>
                 Consulta si el nombre de la calle ya existe
             </h2>
             <div className="flex justify-center">
-                <div className="relative w-full max-w-md z-[40]">
+                <div className="relative w-full max-w-md z-[1000]">
                     <div className="relative">
                         <input
                             id='street-search-input'
