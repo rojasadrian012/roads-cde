@@ -90,7 +90,7 @@ html {
 }
 
 .dark {
-    --background: #121212;
+    --background: oklch(0.129 0.042 264.695);
     --foreground: oklch(0.985 0.002 247.839);
     --card: oklch(0.21 0.034 264.665);
     --card-foreground: oklch(0.985 0.002 247.839);
