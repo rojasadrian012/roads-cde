@@ -20,8 +20,7 @@ export const InteractiveMap: React.FC<Props> = ({
 }) => {
   const roads = roadsData as GeoJsonData;
 
-  const handleStreetFound = (codigo: string, nombre: string) => {
-    console.log('Calle encontrada:', codigo, nombre);
+  const handleStreetFound = (codigo: string, _nombre: string) => {
     setFoundStreetCode(codigo);
   };
 
@@ -36,7 +35,7 @@ export const InteractiveMap: React.FC<Props> = ({
         center={[-25.5095, -54.6158]}
         zoom={13}
         scrollWheelZoom={true}
-        className={`${classes.mapContainer} h-[500px] lg:h-[600px]`}
+        className={`${classes.mapContainer} h-[500px]`}
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

@@ -24,24 +24,27 @@ export const HomePage: React.FC = () => {
             <Hero />
             <Benefits />
 
-            <Container id={SECTION_IDS.interactiveMap} className="pt-24">
+            {/* Contenedor para el mapa que ocupe toda la pantalla */}
+            <Container id={SECTION_IDS.interactiveMap} className="pt-24 h-screen flex flex-col">
                 <GeneralTitle title="Mapa interactivo" />
-                <LazySection
-                    rootMargin="300px" // Inicia carga 300px antes
-                    fallback={<Fallback text="Cargando mapa interactivo..." />}
-                >
-                    <LazyInteractiveMap
-                        onStreetSelect={handleStreetSelect}
-                        selectedStreetCode={formData.streetCode}
-                        foundStreetCode={foundStreetCode}
-                        setFoundStreetCode={setFoundStreetCode}
-                    />
-                </LazySection>
+                <div className="flex-1"> {/* Esto hace que el contenido ocupe el resto del espacio */}
+                    <LazySection
+                        rootMargin="300px"
+                        fallback={<Fallback text="Cargando mapa interactivo..." />}
+                    >
+                        <LazyInteractiveMap
+                            onStreetSelect={handleStreetSelect}
+                            selectedStreetCode={formData.streetCode}
+                            foundStreetCode={foundStreetCode}
+                            setFoundStreetCode={setFoundStreetCode}
+                        />
+                    </LazySection>
+                </div>
             </Container>
 
-            <Container id={SECTION_IDS.streetName} className="pt-24 md:pt-0 min-h-full">
+            <Container id={SECTION_IDS.streetName} className="pt-24 md:pt-0 min-h-screen">
                 <Form formData={formData} setFormData={setFormData} />
-            </Container >
+            </Container>
         </>
     );
 };

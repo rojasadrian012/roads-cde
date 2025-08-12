@@ -1,14 +1,12 @@
-import type React from "react";
-
 interface FallbackProps {
-    text: string
+    text: string;
 }
 
 export const Fallback: React.FC<FallbackProps> = ({ text }) => {
     return (
-        <div className="flex flex-col justify-center items-center h-96">
+        <div className="h-full flex flex-col justify-center items-center">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-            <p className="mt-4 text-gray-600 dark:text-slate-300">{text}</p>
+            <p className="mt-4 text-primary text-2xl italic">{text}</p>
         </div>
-    )
-}
+    );
+};

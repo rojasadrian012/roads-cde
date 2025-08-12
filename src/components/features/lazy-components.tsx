@@ -5,3 +5,4 @@ export const LazyInteractiveMap = React.lazy(() =>
         default: module.InteractiveMap
     }))
 )
+

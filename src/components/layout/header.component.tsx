@@ -21,7 +21,7 @@ export const Header: React.FC = () => {
                     <img
                         src="/seba.svg"
                         alt="Logo"
-                        className="w-15 h-15 md:w-20 md:h-20 min-w-fit dark:drop-shadow-lg dark:drop-shadow-slate-400"
+                        className="w-15 h-15 md:w-20 md:h-20 min-w-fit"
                     />
 
                     <span className="manrope text-2xl font-semibold text-foreground cursor-pointer">
