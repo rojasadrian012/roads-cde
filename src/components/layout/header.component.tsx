@@ -78,7 +78,7 @@ export const Header: React.FC = () => {
                 leaveTo="opacity-0 scale-95"
             >
                 <div id="mobile-menu" className="md:hidden shadow-lg">
-                    <ul className="flex flex-col space-y-4 pt-1 pb-6 px-6">
+                    <ul className="flex flex-col space-y-4 p-6">
                         {menuItems.map(item => (
                             <li key={item.text}>
                                 <a href={item.url} className="text-foreground hover:text-primary block" onClick={toggleMenu}>

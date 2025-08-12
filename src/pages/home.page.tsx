@@ -1,10 +1,11 @@
 import React from "react";
 import { Benefits } from "@/components/features/benefits";
-import { emptyFormData, type FormData } from "@/components/features/form";
+import { emptyFormData, Form, type FormData } from "@/components/features/form";
 import { Hero } from "@/components/features/hero.component";
-import { LazySection } from "@/components";
-import { LazyForm, LazyInteractiveMap } from "@/components/features/lazy-components";
-import { menuItems } from "@/data";
+import { Container, GeneralTitle, LazySection } from "@/components";
+import { LazyInteractiveMap } from "@/components/features/lazy-components";
+import { SECTION_IDS } from "@/data";
+import { Fallback } from "@/components/ui/fallback.component";
 
 export const HomePage: React.FC = () => {
     const [formData, setFormData] = React.useState<FormData>(emptyFormData);
@@ -19,19 +20,15 @@ export const HomePage: React.FC = () => {
     };
 
     return (
-        <div>
+        <>
             <Hero />
             <Benefits />
 
-            <div id={menuItems[2].url.replace(/^#/, '')}>
+            <Container id={SECTION_IDS.interactiveMap} className="pt-24">
+                <GeneralTitle title="Mapa interactivo" />
                 <LazySection
                     rootMargin="300px" // Inicia carga 300px antes
-                    fallback={
-                        <div className="flex flex-col justify-center items-center h-96">
-                            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
-                            <p className="mt-4 text-gray-600">Cargando mapa interactivo...</p>
-                        </div>
-                    }
+                    fallback={<Fallback text="Cargando mapa interactivo..." />}
                 >
                     <LazyInteractiveMap
                         onStreetSelect={handleStreetSelect}
@@ -40,20 +37,11 @@ export const HomePage: React.FC = () => {
                         setFoundStreetCode={setFoundStreetCode}
                     />
                 </LazySection>
-            </div>
+            </Container>
 
-            <div id={menuItems[3].url.replace(/^#/, '')}>
-                <LazySection
-                    rootMargin="200px"
-                    fallback={
-                        <div className="flex justify-center items-center h-64">
-                            <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary"></div>
-                        </div>
-                    }
-                >
-                    <LazyForm formData={formData} setFormData={setFormData} />
-                </LazySection>
-            </div>
-        </div>
+            <Container id={SECTION_IDS.streetName} className="pt-24 md:pt-0 min-h-full">
+                <Form formData={formData} setFormData={setFormData} />
+            </Container >
+        </>
     );
 };

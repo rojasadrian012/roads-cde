@@ -1,20 +1,27 @@
+export const SECTION_IDS = {
+    howWork: "how-work",
+    guide: "guide",
+    interactiveMap: "interactive-map",
+    streetName: "street-name"
+};
+
 import type { IMenuItem } from "./types";
 
 export const menuItems: IMenuItem[] = [
     {
         text: "¿Cómo Funciona?",
-        url: "#how-work"
+        url: `#${SECTION_IDS.howWork}`
     },
-        {
+    {
         text: "Guía",
-        url: "#guide"
+        url: `#${SECTION_IDS.guide}`
     },
     {
         text: "Mapa interactivo",
-        url: "#interactive-map"
+        url: `#${SECTION_IDS.interactiveMap}`
     },
     {
         text: "Proponer nombre",
-        url: "#street-name"
+        url: `#${SECTION_IDS.streetName}`
     }
 ];

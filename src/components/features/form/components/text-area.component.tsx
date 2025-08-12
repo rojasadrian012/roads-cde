@@ -1,3 +1,5 @@
+import { ErrorContainer } from "./error-container.component";
+
 interface TextareaProps {
     id: string;
     name: string;
@@ -28,7 +30,7 @@ export const Textarea: React.FC<TextareaProps> = ({
     label,
 }) => {
     return (
-        <div className="space-y-2">
+        <div className="space-y-0.25 md:space-y-1">
             <label htmlFor={id} className="block text-sm font-semibold">
                 {label} {required && <span className="text-primary">*</span>}
             </label>
@@ -48,16 +50,16 @@ export const Textarea: React.FC<TextareaProps> = ({
                 placeholder={placeholder}
                 maxLength={maxLength}
             />
-            <div className="h-4 m-0">
-                {error && (
-                    <p className="text-primary text-xs">{error}</p>
-                )}
-            </div>
+
+            
             {maxLength && (
                 <p className="text-gray-500 text-xs mb-4">
                     {value.length}/{maxLength} caracteres{minLength && ` (mínimo ${minLength})`}
                 </p>
             )}
+
+            <ErrorContainer error={error} />
+            
         </div>
     );
 };

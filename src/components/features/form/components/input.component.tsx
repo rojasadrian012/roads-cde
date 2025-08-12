@@ -1,3 +1,5 @@
+import { ErrorContainer } from "./error-container.component";
+
 interface InputProps {
     id: string;
     name: string;
@@ -12,6 +14,7 @@ interface InputProps {
     error?: string;
     label: string;
     showCounter?: boolean;
+    showErrorContainer?: boolean;
 }
 
 export const Input: React.FC<InputProps> = ({
@@ -28,9 +31,10 @@ export const Input: React.FC<InputProps> = ({
     error,
     label,
     showCounter = false,
+    showErrorContainer = true
 }) => {
     return (
-        <div className="space-y-1">
+        <div className="space-y-0.25 md:space-x-1">
             <label htmlFor={id} className="block text-sm font-semibold">
                 {label} {required && <span className="text-primary">*</span>}
             </label>
@@ -42,27 +46,27 @@ export const Input: React.FC<InputProps> = ({
                 onChange={onChange}
                 onBlur={onBlur}
                 className={`w-full px-4 py-3 border rounded-xl transition-all duration-200 ${readOnly
-                        ? 'bg-gray-50 dark:bg-slate-900 cursor-not-allowed select-none pointer-events-none border-gray-200 dark:border-slate-600'
-                        : `focus:outline-none focus:ring-2 focus:border-transparent bg-white dark:bg-slate-800 ${error
-                            ? 'border-red-300 focus:ring-primary'
-                            : 'border-gray-200 focus:ring-blue-500'
-                        }`
+                    ? 'bg-gray-50 dark:bg-slate-900 cursor-not-allowed select-none pointer-events-none border-gray-200 dark:border-slate-600'
+                    : `focus:outline-none focus:ring-2 focus:border-transparent bg-white dark:bg-slate-800 ${error
+                        ? 'border-red-300 focus:ring-primary'
+                        : 'border-gray-200 focus:ring-blue-500'
+                    }`
                     }`}
                 placeholder={placeholder}
                 maxLength={maxLength}
                 readOnly={readOnly}
                 tabIndex={readOnly ? -1 : 0}
             />
-            <div className="h-5">
-                {error && (
-                    <p className="text-primary text-xs">{error}</p>
-                )}
-            </div>
+
+
             {showCounter && maxLength && (
                 <p className="text-gray-500 text-xs">
                     {value.length}/{maxLength} caracteres
                 </p>
             )}
+
+            {showErrorContainer && <ErrorContainer error={error} />}
+        
         </div>
     );
 };

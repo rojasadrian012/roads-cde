@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Container } from "@/components/ui";
 import { emptyFormData, type FormData } from "./form.utils";
 import { validateField } from "./validate-field";
 import { supabase } from "@/lib/supabase";
@@ -124,7 +123,7 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
     };
 
     return (
-        <Container className="min-h-dvh flex flex-col items-center justify-around md:flex-row pt-24 md:pt-0">
+        <section className="min-h-dvh flex flex-col items-center justify-around md:flex-row  ">
             <div className="text-center max-w-md py-10 md:px-5">
                 <h1 className="text-3xl lg:text-5xl lg:leading-tight font-bold mb-4">
                     Proponer nombre para <span className="text-primary">calle</span>
@@ -134,18 +133,18 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                 </p>
             </div>
 
-            <div className="w-full md:min-w-lg flex flex-wrap flex-col items-center justify-center gap-8 lg:flex-row lg:gap-20 lg:flex-nowrap">
+            <div className="w-full md:min-w-lg flex flex-wrap flex-col items-center justify-center lg:flex-row lg:gap-20 lg:flex-nowrap">
                 <div className="w-full max-w-3xl">
                     <form onSubmit={handleSubmit} noValidate>
                         <FormCard className="">
                             {/* Street Code Alert */}
 
                             {formData.streetCode ? (
-                                <Alert type="success" className="mb-4">
+                                <Alert type="success" className="mb-2 md:mb-4">
                                     Calle seleccionada: <strong>Código {formData.streetCode}</strong>
                                 </Alert>
                             ) : (
-                                <Alert type="info" className="mb-4">
+                                <Alert type="info" className="mb-2 md:mb-4">
                                     <strong>Por favor, selecciona una calle</strong> haciendo clic sobre una de las calles en el mapa.
                                 </Alert>
                             )}
@@ -237,6 +236,6 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
                     </form>
                 </div>
             </div>
-        </Container>
+        </section>
     );
 }

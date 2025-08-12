@@ -5,9 +5,3 @@ export const LazyInteractiveMap = React.lazy(() =>
         default: module.InteractiveMap
     }))
 )
-
-export const LazyForm = React.lazy(() =>
-    import("./form/form.component").then(module => ({
-        default: module.Form
-    }))
-)
