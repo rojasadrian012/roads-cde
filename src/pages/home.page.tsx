@@ -22,12 +22,15 @@ export const HomePage: React.FC = () => {
     return (
         <>
             <Hero />
+
             <Benefits />
 
-            {/* Contenedor para el mapa que ocupe toda la pantalla */}
-            <Container id={SECTION_IDS.interactiveMap} className="pt-24 h-screen flex flex-col">
+            <Container
+                id={SECTION_IDS.interactiveMap}
+                className="pt-24 min-h-screen flex flex-col"
+            >
                 <GeneralTitle title="Mapa interactivo" />
-                <div className="flex-1"> {/* Esto hace que el contenido ocupe el resto del espacio */}
+                <div className="flex-1">
                     <LazySection
                         rootMargin="300px"
                         fallback={<Fallback text="Cargando mapa interactivo..." />}
@@ -42,7 +45,10 @@ export const HomePage: React.FC = () => {
                 </div>
             </Container>
 
-            <Container id={SECTION_IDS.streetName} className="pt-24 md:pt-0 min-h-screen">
+            <Container
+                id={SECTION_IDS.streetName}
+                className="pt-24 md:pt-0 min-h-screen"
+            >
                 <Form formData={formData} setFormData={setFormData} />
             </Container>
         </>
