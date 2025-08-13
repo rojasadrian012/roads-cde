@@ -43,7 +43,7 @@ export const Textarea: React.FC<TextareaProps> = ({
                 rows={rows}
                 className={`w-full px-4 py-3 m-0 border rounded-xl focus:outline-none focus:ring-2 
                     focus:border-transparent transition-all duration-200 bg-white dark:bg-slate-800 
-                    resize-vertical ${error
+                    resize-vertical placeholder-gray-400 ${error
                         ? 'border-red-300 focus:ring-primary'
                         : 'border-gray-200 focus:ring-blue-500'
                     }`}
