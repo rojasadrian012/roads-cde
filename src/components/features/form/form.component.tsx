@@ -124,7 +124,7 @@ export const Form: React.FC<Props> = ({ setFormData, formData }) => {
 
     return (
         <section className="min-h-screen flex flex-col items-center justify-center md:flex-row">
-            <div className="text-center max-w-md py-10 md:px-5">
+            <div className="text-center max-w-md pt-2 pb-10 md:px-5">
                 <h1 className="text-3xl lg:text-5xl lg:leading-tight font-bold mb-4">
                     Proponer nombre para <span className="text-primary">calle</span>
                 </h1>
