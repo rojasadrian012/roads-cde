@@ -1,8 +1,9 @@
 import { MapPin, Edit3, Info, MousePointer2, Lightbulb, Clock } from "lucide-react";
 import { colors } from "@/styles";
 import type { IBenefit } from "@/components/features/benefits/types";
-import guiaPropuesta from "../assets/images/guia-turistico.png";
-import comoFunciona from "../assets/images/piensa.png";
+import comoFunciona from "../assets/images/guia-turistico.webp";
+import _guiaPropuestaDark from "../assets/images/idea-dark.webp";
+import guiaPropuestaLight from "../assets/images/idea-light.webp";
 import { SECTION_IDS } from "./menu-item";
 
 export const benefits: IBenefit[] = [
@@ -59,6 +60,6 @@ export const benefits: IBenefit[] = [
                 icon: <Clock size={26} color={colors.primary} />,
             },
         ],
-        imageSrc: guiaPropuesta,
+        imageSrc: guiaPropuestaLight,
     },
-];
+]

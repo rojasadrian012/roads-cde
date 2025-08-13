@@ -1,4 +1,4 @@
-import heroImage from "../assets/images/hero-image.png"
+import heroImage from "../assets/images/hero-image.webp"
 
 export const heroDetails = {
     heading: 'Nombremos juntos las calles de nuestra ciudad',
